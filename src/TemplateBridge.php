@@ -12,7 +12,6 @@ abstract class TemplateBridge
     protected $tpl;
     protected $invoker;
     protected $variables;
-    protected $base_dir;
     protected $css = array();
     protected $js = array();
 
@@ -40,28 +39,6 @@ abstract class TemplateBridge
         $this->tpl = $tpl;
         $this->invoker = $invoker;
         $this->variables = $variables;
-        $this->base_dir = $this->getBaseDir();
-    }
-
-    /**
-     * テンプレート ベース ディレクトリを取得
-     *
-     * @return string
-     */
-    protected function getBaseDir()
-    {
-        switch(true) {
-            //TODO 定義していく
-            //case (strpos($this->invoker, '/admin/') !== false):
-            //    $base_dir = TEMPLATE_DIR.'admin/';
-            //    break;
-            default:
-                $script_dirname = dirname($_SERVER['SCRIPT_NAME']);
-                $dir_name_following_root_path = ($script_dirname == '/')? '' : substr($script_dirname, 1).'/';
-
-                $base_dir = TEMPLATE_DIR.$dir_name_following_root_path;
-        }
-        return ($this->isSpDir())? $base_dir.'sp/' : $base_dir;
     }
 
     /**
