@@ -68,7 +68,7 @@ abstract class TemplateBridge
      * prepare
      *
      * @param $template
-     * @throws LogicException
+     * @throws \LogicException
      */
     protected function prepare($template)
     {
@@ -76,11 +76,11 @@ abstract class TemplateBridge
             $template = $this->getDefaultTemplate();
         }
         if(! is_file($template)) {
-            throw new LogicException('Indicated template does not exist. name: '.$template);
+            throw new \LogicException('Indicated template does not exist. name: '.$template);
         }
         $result = $this->loadTemplatefile($template);
         if(! $result) {
-            throw new LogicException('Failed to load: '.$template);
+            throw new \LogicException('Failed to load: '.$template);
         }
         $this->init();
         if(count($this->css) > 0) {
