@@ -194,20 +194,18 @@ abstract class TemplateBridge
         $file = implode('/', $pieces);
         return DIR_TEMPLATE.$file;
     }
-    
+
     /**
      * 文字列をエスケープ
      *
      * @param $str
+     * @param int $flags
+     * @param string $encoding
      * @return string
-     * @throws LogicException
      */
-    public function escape($str)
+    public function escape($str, $flags=ENT_QUOTES, $encoding='UTF-8')
     {
-        if(! defined('ENCODING_HTML_ESCAPE')) {
-            throw new LogicException('ERROR: ENCODING_HTML_ESCAPE is not defined.');
-        }
-        return htmlspecialchars($str, ENT_QUOTES, ENCODING_HTML_ESCAPE);
+        return htmlspecialchars($str, $flags, $encoding);
     }
 
     /**
