@@ -19,6 +19,10 @@ abstract class TemplateBridge
     abstract protected function getDefaultTemplate();
     abstract protected function setGlobalVariables();
     abstract protected function setBlocks();
+
+    /**
+     * Init
+     */
     protected function init()
     {
         // You can override in inherited class
