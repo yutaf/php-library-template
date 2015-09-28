@@ -30,8 +30,7 @@ class TemplateManager
         $this->tpl = $tpl;
 
         $this->invoker = $this->getInvoker();
-        $defaults = (is_array($_SESSION))? $_SESSION : array();
-        $this->variables = array_merge($defaults, $variables);
+        $this->variables = $variables;
         $this->commonBridgePrefix = $this->getCommonBridgePrefix();
     }
 
