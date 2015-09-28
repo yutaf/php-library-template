@@ -14,8 +14,9 @@ abstract class TemplateBridge
     protected $variables;
     protected $css = array();
     protected $js = array();
+    protected $document_root_basedir = 'htdocs';
+    protected $template_basedir = 'templates';
 
-    abstract protected function getDefaultTemplate();
     abstract protected function setGlobalVariables();
     abstract protected function setBlocks();
 
@@ -72,8 +73,8 @@ abstract class TemplateBridge
      */
     protected function prepare($template)
     {
-        if(strlen($template) == 0) {
-            $template = $this->getDefaultTemplate();
+        if(! isset($template) || strlen($template) == 0) {
+            $template = $this->getSamePathHtml();
         }
         if(! is_file($template)) {
             throw new \LogicException('Indicated template does not exist. name: '.$template);
@@ -156,9 +157,13 @@ abstract class TemplateBridge
      *
      * @return string
      */
-    protected function getOwnTemplate()
+    protected function getSamePathHtml()
     {
-        return TEMPLATE_DIR.substr(str_replace('.php', '.html', $_SERVER['SCRIPT_NAME']), 1);
+        $template_root = str_replace($this->document_root_basedir, $this->template_basedir, $_SERVER['DOCUMENT_ROOT']);
+        $script_filename = basename($_SERVER['SCRIPT_NAME']);
+        $template_filename = basename($_SERVER['SCRIPT_NAME'], 'php').'html';
+        $template_path = str_replace($script_filename, $template_filename, $_SERVER['SCRIPT_NAME']);
+        return $template_root.$template_path;
     }
 
     /**
