@@ -2,9 +2,6 @@
     "name": "yutaf/template",
     "license": "MIT",
     "description": "template library",
-    "require": {
-      "pear/pear-core-minimal" : "1.9.5"
-    },
     "autoload": {
         "psr-4": {
             "Yutaf\\": "src/"
