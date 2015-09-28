@@ -5,6 +5,8 @@
  *
  * @author Yuta Fujishiro<yutafuji2008@gmail.com>
  */
+namespace Yutaf;
+
 class TemplateManager
 {
     protected $tpl;

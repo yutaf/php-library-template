@@ -5,6 +5,8 @@
  *
  * @author Yuta Fujishiro<yutafuji2008@gmail.com>
  */
+namespace Yutaf;
+
 abstract class TemplateBridge
 {
     protected $tpl;
