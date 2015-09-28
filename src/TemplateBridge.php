@@ -158,41 +158,7 @@ abstract class TemplateBridge
      */
     protected function getOwnTemplate()
     {
-        // sp
-        if($this->isSpDir()){
-            return $this->getOwnTemplateSp();
-        }
-        // pc
         return TEMPLATE_DIR.substr(str_replace('.php', '.html', $_SERVER['SCRIPT_NAME']), 1);
-    }
-
-    /**
-     * if you are in /sp directory
-     *
-     * @return bool
-     */
-    protected function isSpDir()
-    {
-        if(strpos($this->invoker, BASEDIR.'htdocs/sp/') === false) return false;
-        return true;
-    }
-
-    /**
-     * 呼び出し元のプログラムと同じパス構成を持つテンプレートを取得(スマホ用)
-     *
-     * @return string
-     */
-    private function getOwnTemplateSp()
-    {
-        $file = substr(str_replace('.php', '.html', $_SERVER['SCRIPT_NAME']), 1);
-
-        $pieces = explode('/', $file);
-        $last_key = end(array_keys($pieces));
-        $template_dir_sp = 'sp';
-        array_splice($pieces, $last_key, 0, $template_dir_sp);
-
-        $file = implode('/', $pieces);
-        return DIR_TEMPLATE.$file;
     }
 
     /**
