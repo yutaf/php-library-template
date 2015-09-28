@@ -3,7 +3,7 @@
 /**
  * Class TemplateManager
  *
- * @author Yuta Fujishiro<fujishiro@amaneku.co.jp>
+ * @author Yuta Fujishiro<yutafuji2008@gmail.com>
  */
 class TemplateManager
 {
