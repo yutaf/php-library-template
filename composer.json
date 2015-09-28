@@ -2,8 +2,16 @@
     "name": "yutaf/template",
     "license": "MIT",
     "description": "template library",
+    "repositories": [
+        {
+            "type": "pear",
+            "url": "http://pear.php.net"
+        }
+    ],
     "require": {
-      "php": ">=5.3.0"
+      "php": ">=5.3.0",
+      "pear-pear.php.net/PEAR" : "*@stable",
+      "pear-pear.php.net/HTML_Template_IT" : "*@stable"
     },
     "autoload": {
         "psr-4": {
