@@ -27,11 +27,11 @@ abstract class TemplateBridge
     /**
      * コンストラクタ
      *
-     * @param HTML_Template_IT $tpl
+     * @param $tpl
      * @param $invoker
      * @param array $variables
      */
-    public function __construct(HTML_Template_IT $tpl, $invoker, $variables=array())
+    public function __construct(\HTML_Template_IT $tpl, $invoker, $variables=array())
     {
         $this->tpl = $tpl;
         $this->invoker = $invoker;

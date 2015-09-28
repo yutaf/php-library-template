@@ -21,7 +21,7 @@ class TemplateManager
      * @param $tpl
      * @param array $variables
      */
-    public function __construct(HTML_Template_IT $tpl, $variables=array())
+    public function __construct(\HTML_Template_IT $tpl, $variables=array())
     {
         // デリミタの設定
         $tpl->openingDelimiter='{{';
