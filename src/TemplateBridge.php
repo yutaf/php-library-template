@@ -164,11 +164,21 @@ abstract class TemplateBridge
      */
     protected function getSamePathHtml()
     {
-        $template_root = str_replace($this->document_root_basedir, $this->template_basedir, $_SERVER['DOCUMENT_ROOT']);
+        $template_root = $this->getTemplateRoot();
         $script_filename = basename($_SERVER['SCRIPT_NAME']);
         $template_filename = basename($_SERVER['SCRIPT_NAME'], 'php').'html';
         $template_path = str_replace($script_filename, $template_filename, $_SERVER['SCRIPT_NAME']);
         return $template_root.$template_path;
+    }
+
+    /**
+     * get template root directory
+     *
+     * @return mixed
+     */
+    protected function getTemplateRoot()
+    {
+        return str_replace($this->document_root_basedir, $this->template_basedir, $_SERVER['DOCUMENT_ROOT']);
     }
 
     /**
