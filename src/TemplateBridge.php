@@ -65,6 +65,11 @@ abstract class TemplateBridge
         return $this->get();
     }
 
+    protected function getDefaultTemplate()
+    {
+        return $this->getSamePathHtml();
+    }
+
     /**
      * prepare
      *
@@ -74,7 +79,7 @@ abstract class TemplateBridge
     protected function prepare($template)
     {
         if(! isset($template) || strlen($template) == 0) {
-            $template = $this->getSamePathHtml();
+            $template = $this->getDefaultTemplate();
         }
         if(! is_file($template)) {
             throw new \LogicException('Indicated template does not exist. name: '.$template);
