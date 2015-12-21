@@ -178,7 +178,11 @@ abstract class TemplateBridge
      */
     protected function getTemplateRoot()
     {
-        return str_replace($this->document_root_basedir, $this->template_basedir, $_SERVER['DOCUMENT_ROOT']);
+        $root = str_replace($this->document_root_basedir, $this->template_basedir, $_SERVER['DOCUMENT_ROOT']);
+        if(substr($root, -1, 1) === '/') {
+            $root = substr_replace($root, '', -1);
+        }
+        return $root;
     }
 
     /**
